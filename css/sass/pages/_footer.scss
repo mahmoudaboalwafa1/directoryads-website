@@ -1,0 +1,102 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../components/buttons" as *;
+
+/* Start Footer */
+footer {
+  background-color: $footer_color;
+  padding: 50px 0;
+
+  .container {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 50px;
+  }
+
+  h5 {
+    color: $white_color;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  p,
+  a,
+  i {
+    color: $text_gray;
+  }
+
+  li {
+    padding: 7px 0;
+  }
+
+  i {
+    cursor: pointer;
+    transition: color 0.3s ease-out;
+
+    &:hover {
+      color: $white_color;
+    }
+  }
+
+  i:not(i:first-of-type) {
+    padding-left: 25px;
+  }
+
+  .container div:not(.clearfix),
+  form {
+    float: left;
+    width: (100% / 4);
+
+    @include minTablet {
+      width: (85% / 2);
+    }
+
+    @include maxTablet {
+      width: (100% / 1) !important;
+    }
+  }
+
+  .container div:not(.clearfix),
+  form {
+    padding-left: 30px;
+    margin-bottom: 20px;
+
+    @include minTablet {
+      padding-left: 0;
+    }
+  }
+
+  .about {
+    width: 40% !important;
+    margin-right: 30px;
+  }
+
+  form {
+    display: flex;
+  }
+
+  input {
+    border: 1px solid #6c757d;
+    padding: 20px;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: $text_gray;
+    }
+  }
+
+  button {
+    @extend %button_blue;
+    border-radius: 0;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+
+  .copy-right {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+/* End Footer */

@@ -1,0 +1,150 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../layout/grid" as *;
+@use "../layout/header" as *;
+@use "featured_ads" as *;
+@use "category.scss" as *;
+@use "trending" as *;
+@use "testimonials" as *;
+@use "blogs" as *;
+@use "newsletter" as *;
+@use "footer" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+/* Start Main */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: black;
+  color: white;
+}
+
+.clearfix {
+  clear: both;
+}
+
+main {
+  background-image: $img_Hero;
+  background-size: cover;
+  background-attachment: fixed;
+  color: $white_color;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 20px;
+  .container-hero {
+    padding: 80px 0;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    p {
+      line-height: 3;
+      margin-left: -50px;
+      font-size: 18px;
+      letter-spacing: 3.8;
+
+      @include maxMobile {
+        margin: 0;
+      }
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8);
+      width: fit-content;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 13px;
+      border-radius: 4px;
+      display: flex;
+
+      @include choosenMedia("(max-width: 1099px)") {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      input,
+      select,
+      button {
+        padding: 10px;
+        border-radius: 4px;
+        margin: 0 10px;
+        @include choosenMedia("(max-width: 1099px)") {
+          width: calc(100% - 20px);
+        }
+      }
+
+      div.location {
+        background-color: white;
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - 530px);
+        @include choosenMedia("(max-width: 1099px)") {
+          width: calc(100% - 20px);
+          margin: 10px 0;
+          margin-left: 10px;
+        }
+
+        i {
+          color: $text_color;
+          margin-right: 20px;
+        }
+      }
+
+      input,
+      select {
+        border: none;
+        outline: none;
+        color: $text_color;
+      }
+
+      button {
+        @extend %button_blue;
+        width: 120px;
+
+        @include choosenMedia("(max-width: 1099px)") {
+          width: calc(100% - 20px);
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .trend-box {
+      display: flex;
+      align-items: center;
+      @include choosenMedia("(max-width: 1099px)") {
+        flex-wrap: wrap;
+      }
+
+      p {
+        padding-right: 10px;
+        flex: 1;
+      }
+
+      li {
+        padding: 3px;
+        margin: 0 3px;
+        @extend %button_transparent;
+      }
+    }
+  }
+
+  .overlay {
+    @include overlay(rgba(0, 0, 0, 0.3));
+  }
+}
+/* End Main */

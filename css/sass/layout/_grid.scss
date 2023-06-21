@@ -1,0 +1,35 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  &:not(input) {
+    text-transform: capitalize;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  @include choosenMedia("(max-width:600px)") {
+    max-width: 97%;
+  }
+  @include maxMobile {
+    max-width: 540px;
+  }
+  @include minTablet {
+    max-width: 720px;
+  }
+  @include minComputer {
+    max-width: 960px;
+  }
+}

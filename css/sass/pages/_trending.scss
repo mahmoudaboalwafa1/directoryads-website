@@ -1,0 +1,65 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "./featured_ads" as *;
+
+/* Start Trending */
+section.trending {
+  background-color: $section_color;
+  padding-top: 60px;
+  @include mainTitle(null, 0, 45px);
+
+  .trend-container {
+    padding-bottom: 60px;
+    .trend-box {
+      margin-top: 40px;
+      margin-right: 40px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 20px -2px rgb(0 0 0 / 10%);
+      width: (91.6% / 2);
+      float: left;
+      height: 100%;
+
+      @include choosenMedia("(max-width: 1020px)") {
+        width: (100% / 1);
+      }
+
+      img {
+        width: 196px;
+        height: 190px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      div {
+        background-color: $white_color;
+        padding: 26px;
+        height: 100%;
+        width: 100%;
+
+        ul {
+          @extend %ul;
+        }
+
+        h5 {
+          color: $blue_color;
+        }
+
+        p {
+          font-size: 13px;
+          margin: 10px 0 20px;
+        }
+
+        .rate {
+          @extend %rate;
+          padding: 0;
+
+          .star {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Trending */

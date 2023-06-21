@@ -1,0 +1,66 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../components/buttons" as *;
+
+/* Start Our Blogs */
+.blogs {
+  @include mainTitle("yes", 50%, 40px);
+  background-color: $section_color;
+  text-align: center;
+  padding-top: 60px;
+  .container {
+    padding-top: 60px;
+  }
+  .blog-item {
+    float: left;
+    width: (93% / 3);
+    margin: 10px;
+    text-align: left;
+
+    @include choosenMedia("(max-width: 992px)") {
+      width: (91% / 2);
+    }
+
+    @include choosenMedia("(max-width: 570px)") {
+      width: (100% / 1);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    ul {
+      display: flex;
+      + p {
+        font-size: 14px;
+        margin-top: 5px;
+        line-height: 1.8;
+      }
+    }
+
+    li {
+      margin: 5px;
+    }
+
+    li:not(:last-of-type) {
+      color: #b3b3b3;
+    }
+
+    li:last-of-type {
+      color: $blue_color;
+    }
+  }
+
+  button {
+    @extend %button_blue;
+    padding: 15px 25px;
+    margin: 35px 0;
+
+    &:hover {
+      background-color: #0974fb;
+      border-color: #046df4;
+    }
+  }
+}
+/* End Our Blogs */

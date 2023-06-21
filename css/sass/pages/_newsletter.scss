@@ -1,0 +1,62 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+/* Start Newsletter */
+.news-letter {
+  background-color: $blue_color;
+  color: $white_color;
+  padding: 40px 0;
+
+  h4 {
+    font-weight: 300;
+    padding-bottom: 5px;
+    font-size: 18px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+  }
+
+  .news-text,
+  form {
+    float: left;
+    width: (100% / 2);
+
+    @include choosenMedia("(max-width: 768px)") {
+      width: (100% / 1);
+      padding: 10px 0;
+    }
+  }
+
+  form {
+    display: flex;
+  }
+
+  input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $white_color;
+    outline: none;
+    width: calc(100% - 110px);
+    padding: 5px;
+
+    &::placeholder {
+      color: $white_color;
+    }
+  }
+
+  button {
+    border: none;
+    padding: 15px 20px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: black;
+      color: $white_color;
+    }
+  }
+}
+/* End Newsletter */

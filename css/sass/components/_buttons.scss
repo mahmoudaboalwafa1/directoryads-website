@@ -1,0 +1,26 @@
+@use "../helpers/variables" as *;
+
+// button Blue
+%button_blue {
+  background-color: $blue_color;
+  border: 1px solid $blue_color;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 30px;
+  color: $white_color;
+  transition: all 0.2s ease;
+}
+
+// button transparent
+%button_transparent {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+
+  &:hover {
+    background: $white_color;
+    color: $blue_color;
+  }
+}

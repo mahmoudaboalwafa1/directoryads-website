@@ -1,0 +1,179 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+@use "../components/buttons" as *;
+
+/* Start Header */
+header {
+  color: $white_color;
+  padding: 40px 0;
+  @include flex(center, space-between);
+
+  h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  nav {
+    @include choosenMedia("(min-width: 1100px)") {
+      display: flex !important;
+    }
+
+    @include choosenMedia("(max-width: 1099px)") {
+      display: none;
+      position: absolute;
+      background-color: $white_color;
+      right: 0;
+      width: 300px;
+      top: 0;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 50px;
+      padding-left: 30px;
+      height: 100vh;
+      animation: moveleft 0.5s ease-in-out;
+
+      @keyframes moveleft {
+        from {
+          right: -300px;
+        }
+        to {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  li {
+    @include choosenMedia("(min-width: 1100px)") {
+      display: inline-block;
+    }
+
+    &:nth-child(3) {
+      position: relative;
+      @include choosenMedia("(min-width: 1100px)") {
+        &:hover ul {
+          display: block;
+        }
+      }
+    }
+
+    a {
+      font-size: 15px;
+      color: white;
+      padding: 20px 10px;
+
+      @include choosenMedia("(max-width: 1099px)") {
+        color: black;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      &:nth-child(3) {
+        @include choosenMedia("(max-width: 1099px)") {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      i {
+        @include choosenMedia("(max-width: 1099px)") {
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      ul {
+        position: absolute;
+        background-color: white;
+        color: black;
+        width: 200px;
+        padding: 10px 0;
+        left: -130px;
+        top: 40px;
+        display: none;
+        border-top: 1px solid $blue_color;
+
+        @include choosenMedia("(max-width: 1099px)") {
+          position: unset;
+          margin-left: -34px;
+          border-top: transparent;
+          background-color: transparent;
+          transform: translateY(21px);
+        }
+
+        li {
+          padding: 5px 0;
+          display: block;
+
+          @include choosenMedia("(max-width: 1099px)") {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    margin-left: 140px;
+
+    @include choosenMedia("(max-width: 1099px)") {
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  form {
+    padding-left: 100px;
+    @include choosenMedia("(max-width: 1099px)") {
+      padding: 0;
+    }
+    button:first-of-type {
+      background-color: transparent;
+      border: none;
+      color: white;
+      position: relative;
+      &::before {
+        content: "";
+        background-color: $white_color;
+        width: 1px;
+        height: 20px;
+        position: absolute;
+        left: -20px;
+        top: 0;
+      }
+    }
+
+    button:last-of-type {
+      @extend %button_blue;
+      margin-left: 30px;
+
+      @include choosenMedia("(max-width: 1099px)") {
+        margin-left: 0;
+      }
+    }
+  }
+  i:last-of-type:not(a i, .close) {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    @include choosenMedia("(max-width: 1099px)") {
+      display: block;
+    }
+  }
+
+  i.close {
+    color: black;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+    @include choosenMedia("(min-width: 1100px)") {
+      display: none;
+    }
+  }
+}
+/* End Header */
